@@ -1,0 +1,120 @@
+FROM httpd:latest
+COPY lab.html /usr/local/apache2/htdocs/index.html
+
+
+ docker build -t lab .
+ docker run -d --name c1 -p 9099:80 lab
+docker tag lab thanushap01/lab
+docker push thanushap01/lab 
+ docker pull reethu13/lab
+ docker run -d --name c2 -p 9098:80 lab
+
+GitHub:
+
+
+git config --global user.name "Thanusha-p-new"
+git config --global user.email "thanushap49@gmail.com"
+
+git init
+git branch -M main
+
+git add pyth.py
+git commit -m "Initial commit"
+
+git branch feature-add
+git switch feature-add
+
+git add pyth.py
+git commit -m "Updated addition"
+
+git switch main
+git merge feature-add
+
+git branch
+git status
+git log --oneline --all
+python pyth.py
+
+
+
+
+kuberctal
+
+
+
+deployment.yml
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: kuber11
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: kuber11
+
+  template:
+    metadata:
+      labels:
+        app: kuber11
+
+    spec:
+      containers:
+        - name: kuber11
+          image: kuber11
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+
+service.yml
+
+
+
+
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: kuber11
+
+spec:
+  type: NodePort
+
+  selector:
+    app: kuber11
+
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30092
+
+rename name an d app as kub
+
+docker build -t kub .
+docker run -d --name cc1 -p 9091:80 kub
+
+docker tag kub thanushap01/kub
+docker push thanushap01/kub
+
+kubectl version
+
+kubectl apply -f deployment.yml
+
+kubectl get deployments
+kubectl get pods
+kubectl get services
+
+kubectl scale deployment kub --replicas=5
+
+kubectl get pods
+
+kubectl delete pod <pod-name>
+
+kubectl get pods
+kubectl get services
+kubectl get endpoints kubernetes
