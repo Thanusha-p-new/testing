@@ -163,3 +163,6 @@ student.json
 "firstname":"thanusha",
 "lastname":"reddy"
 }
+
+maven-archetype-quickstart
+for search JSON.simple
